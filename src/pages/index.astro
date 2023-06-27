@@ -5,15 +5,26 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Advance Wars Clash</title>
 	</head>
 	<body>	
-		<header class="relative">
-			<div class="absolute left-1/2 -translate-x-1/2 flex flex-col gap-1 justify-center items-center">
+		<header class="relative flex flex-row justify-between [&>div>span]:text-[56px] [&>div>span]:cursor-pointer">
+			<div class="flex items-center w-full ml-[120px]">
+				<span class="material-icons">arrow_left</span>
+				<img class="h-14" src="/factions/Orange_Star_logo.webp" alt="Orange Star's logo"/>
+				<span class="material-icons">arrow_right</span>
+			</div>
+			<div class="flex flex-col gap-1 justify-center items-center w-full">
 				<img class="w-32 lg:w-64 h-auto" alt="Logo" src="/awlogo.png">
 				<h1 class="font-boxing text-6xl text-center text-black font-bold"><span class="text-red-500">orange star</span> vs <span class="text-blue-900">blue moon</span></h1>
+			</div>
+			<div class="flex items-center justify-end w-full mr-[120px]">
+				<span class="material-icons">arrow_left</span>
+				<img class="h-14" src="/factions/Blue_Moon_logo.webp" alt="Blue Moon's logo"/>
+				<span class="material-icons">arrow_right</span>
 			</div>
 		</header>
 
@@ -22,7 +33,7 @@
 					class="flex justify-between relative 
 							[&>div>img]:absolute [&>div>img]:bottom-0 [&>div>img]:w-auto h-[40vh] 
 							[&>div>img]:animate-ease-in-out [&>div>img]:animate-duration-1000
-							lg:h-screen pt-24 mt-1 border-b border-black/10">
+							lg:h-[85vh] border-b border-black/10">
 				<div class="relative w-full [&>img]:!transform [&>img]:!-scale-x-100">
 					<img class="andy-clip-path left-0 h-[80%] z-30 animate-delay-100 animate-fade-right" src="/COs/Andy.webp" alt="andy's wit"/>
 					<img class="max-clip-path left-[10%] h-[70%] z-20 animate-delay-500 animate-fade-right" src="/COs/Max.webp" alt="max's brute force"/>
