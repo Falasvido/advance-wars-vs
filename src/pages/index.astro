@@ -1,15 +1,173 @@
 ---
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Advance Wars Clash</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body>	
+		<header class="relative">
+			<div class="absolute left-1/2 -translate-x-1/2 flex flex-col gap-1 justify-center items-center">
+				<img class="w-32 lg:w-64 h-auto" alt="Logo" src="/awlogo.png">
+				<h1 class="font-boxing text-6xl text-center text-black font-bold"><span class="text-red-500">orange star</span> vs <span class="text-blue-900">blue moon</span></h1>
+			</div>
+		</header>
+
+		<main>
+			<section id="COs" 
+					class="flex justify-between relative 
+							[&>div>img]:absolute [&>div>img]:bottom-0 [&>div>img]:w-auto h-[40vh] 
+							[&>div>img]:animate-ease-in-out [&>div>img]:animate-duration-1000
+							lg:h-screen pt-24 mt-1 border-b border-black/10">
+				<div class="relative w-full [&>img]:!transform [&>img]:!-scale-x-100">
+					<img class="andy-clip-path left-0 h-[80%] z-30 animate-delay-100 animate-fade-right" src="/COs/Andy.webp" alt="andy's wit"/>
+					<img class="max-clip-path left-[10%] h-[70%] z-20 animate-delay-500 animate-fade-right" src="/COs/Max.webp" alt="max's brute force"/>
+					<img class="sami-clip-path left-[25%] h-[60%] z-10 animate-delay-[900ms] animate-fade-right" src="/COs/Sami.webp" alt="sami's soldiers"/>
+					<img class="nell-clip-path left-[55%] h-[50%] z-0 animate-delay-[1300ms] animate-fade-right" src="/COs/Nell.webp" alt="nell's luck"/>
+				</div>
+				<div class="relative w-full">
+					<img class="olaf-clip-path -right-[20%] h-[80%] z-30 animate-delay-100 animate-fade-left" src="/COs/Olaf.webp" alt="olaf's winter"/>
+					<img class="grit-clip-path right-[23%] h-[70%] z-20 animate-delay-500 animate-fade-left" src="/COs/Grit.webp" alt="grit's precision"/>
+					<img class="sasha-clip-path right-[30%] h-[60%] z-10 animate-delay-[900ms] animate-fade-left" src="/COs/Sasha.webp" alt="sasha's money"/>
+					<img class="colin-clip-path right-[60%] h-[50%] z-0 animate-delay-[1300ms] animate-fade-left" src="/COs/Colin.webp" alt="colin's deals"/>
+				</div>
+
+				<div id="info" class="absolute bottom-8 z-50 left-1/2 -translate-x-1/2">
+					<div class="flex flex-col">
+						<div class="px-5 pt-4 pb-2 bg-[#d96b1c] text-black">
+							<h2 class="font-boxing text-7xl">the battle of the century</h2>
+						</div>
+						<div class="px-5 pt-3 pb-2 bg-white text-black flex justify-center">
+							<a class="font-boxing text-5xl hover:contrast-150 hover:scale-105 transition inline-block" href="https://awbw.amarriner.com/profile.php?username=Falasvido" target="_blank" rel="noopener noreferrer">who is sami's new girlfriend?</a>
+						</div>
+						<div class="px-5 pt-3 pb-2 bg-white text-black flex justify-center">
+							<a class="font-boxing text-5xl hover:contrast-150 hover:scale-105 transition inline-block" href="https://awbw.amarriner.com/profile.php?username=Falasvido" target="_blank" rel="noopener noreferrer">olaf's last nudes leaked!</a>
+						</div>
+					</div>
+				</div>
+
+				<div id="combat" class="absolute bottom-8 z-50 left-1/2 -translate-x-1/2 flex flex-col gap-y-24 opacity-0 invisible">
+					<div class="px-5 pt-4 pb-2 bg-white text-black text-center opacity-70">
+						<h3 class="font-boxing text-7xl">andy's wit</h3>
+					</div>
+					<span class="left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 font-boxing text-[#d96b1c] text-8xl block absolute">
+						vs
+					</span>
+					<div class="px-5 pt-4 pb-2 bg-white text-black text-center opacity-70">
+						<h3 class="font-boxing text-7xl">olaf's winter</h3>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+
+		</footer>
 	</body>
 </html>
+
+<style is:global>
+	body {
+		background-image: url("/macroland250.png");
+		background-repeat: repeat;
+		overflow: hidden;
+	}
+
+	@font-face {
+		font-family: 'Boxing';
+		src: url('/fonts/boxing.ttf');
+		font-weight: bold;
+	}
+
+	@font-face {
+		font-family: 'Boxing Striped';
+		src: url('/fonts/boxing-striped.ttf');
+		font-weight: bold;
+	}
+
+	.andy-clip-path {
+		clip-path: polygon(53% 0%, 45% 5%, 39% 13%, 48% 24%, 52% 31%, 63% 35%, 55% 38%, 52% 43%, 39% 40%, 44% 35%, 43% 27%, 39% 22%, 28% 20%, 19% 22%, 13% 29%, 12% 34%, 15% 36%, 12% 41%, 6% 42%, 0% 47%, 0% 59%, 8% 62%, 20% 62%, 27% 59%, 29% 55%, 28% 49%, 44% 56%, 33% 65%, 35% 73%, 27% 91%, 27% 100%, 92% 100%, 89% 90%, 82% 72%, 86% 66%, 99% 49%, 99% 36%, 87% 29%, 93% 22%, 93% 10%, 87% 5%, 74% 0%);
+	}
+	.max-clip-path {
+		clip-path: polygon(35% 0%, 0% 0%, 0% 10%, 4% 14%, 10% 37%, 9% 55%, 23% 72%, 20% 100%, 93% 100%, 100% 50%, 100% 45%, 93% 37%, 78% 16%, 53% 8%, 40% 8%);
+	}
+	.sami-clip-path {
+		clip-path: polygon(4% 3%, 0% 9%, 0% 21%, 4% 26%, 1% 34%, 6% 40%, 4% 58%, 0% 64%, 4% 70%, 5% 75%, 17% 77%, 12% 84%, 13% 100%, 74% 100%, 70% 82%, 82% 86%, 89% 82%, 100% 82%, 100% 68%, 89% 67%, 75% 64%, 64% 60%, 52% 35%, 41% 32%, 45% 26%, 46% 18%, 44% 12%, 41% 4%, 33% 0%, 0% 0%);
+	}
+	.nell-clip-path {
+		clip-path: polygon(11% 0%, 68% 0%, 74% 6%, 74% 22%, 87% 27%, 88% 40%, 100% 93%, 100% 100%, 0% 100%, 0% 66%, 15% 51%, 15% 32%, 2% 21%, 2% 10%, 2% 6%);
+	}
+
+	.olaf-clip-path {
+		clip-path: polygon(100% 100%, 0% 100%, 0% 66%, 13% 41%, 13% 25%, 23% 12%, 29% 0%, 57% 0%, 61% 11%, 74% 15%, 76% 29%, 93% 48%, 91% 65%, 100% 86%);
+	}
+	.grit-clip-path {
+		clip-path: polygon(43% 0%, 37% 12%, 30% 38%, 51% 34%, 43% 40%, 48% 45%, 17% 68%, 12% 68%, 7% 73%, 0% 86%, 0% 100%, 100% 100%, 100% 47%, 100% 43%, 89% 32%, 76% 23%, 85% 21%, 77% 14%, 71% 0%);
+	}
+	.sasha-clip-path {
+		clip-path: polygon(41% 1%, 24% 11%, 23% 18%, 27% 25%, 21% 41%, 12% 60%, 10% 69%, 10% 81%, 20% 84%, 14% 100%, 70% 100%, 100% 74%, 66% 31%, 62% 7%, 54% 2%);
+	}
+	.colin-clip-path {
+		/* problems with editor */
+	}
+</style>
+
+<script>
+	const $COs = document.querySelector('#COs');
+	const $COImages = $COs.querySelectorAll('img');
+	const $info = $COs.querySelector('#info');
+	const $combat = $COs.querySelector('#combat');
+
+	$COImages.forEach($img => {
+		$img.addEventListener('mouseleave', () => {
+			$COImages.forEach($img => {
+				$img.setAttribute('style', 'transition: all .3s ease-in-out');
+				// hide/show info and combat banners
+				$info.setAttribute('style', 'opacity: 1; transition: all .3s ease-in-out');
+				$combat.setAttribute('style', 'opacity: 0; transition: all .3s ease-in-out; visibility: hidden');
+			});
+		});
+
+		$img.addEventListener('mouseenter', () => {
+			// get confronted COs
+			const sectionImages = $img.parentElement.children;
+			const index = Array.from(sectionImages).indexOf($img);
+			const [leftCO, rightCO] = [
+				$COImages[index],
+				$COImages[index + $COImages.length / 2]
+			];
+
+			// hide/show info and combat banners
+			$info.setAttribute('style', 'opacity: 0; transition: all .3s ease-in-out');
+			$combat.setAttribute('style', 'opacity: 1; transition: all .3s ease-in-out; visibility: visible');
+
+			const [leftCOTitle, rightCOTitle] = $combat.querySelectorAll('h3');
+			leftCOTitle.innerText = leftCO.alt;
+			rightCOTitle.innerText = rightCO.alt;
+
+			// hide other COs
+			$COImages.forEach($img => {
+				$img.setAttribute(
+					'style',
+					'filter: blur(2px) grayscale(.8); transition: all .3s ease-in-out'
+				);
+			});
+
+			// apply styles to selected COS
+			leftCO.setAttribute(
+				'style',
+				'scale: 1.05; contrast: 1.1; transition: all .3s ease-in-out'
+			);
+			rightCO.setAttribute(
+				'style',
+				'scale: 1.05; contrast: 1.1; transition: all .3s ease-in-out'
+			);
+		});
+	});
+</script>
+
+<!-- 1h 30min -->
