@@ -13,18 +13,18 @@
 	<body>	
 		<header class="relative flex flex-row justify-between [&>div>span]:text-[56px] [&>div>span]:cursor-pointer">
 			<div class="flex items-center w-full ml-[120px]">
-				<span class="material-icons">arrow_left</span>
-				<img class="h-14" src="/factions/Orange_Star_logo.webp" alt="Orange Star's logo"/>
-				<span class="material-icons">arrow_right</span>
+				<span id="previous-local-faction" class="material-icons noSelect">arrow_left</span>
+				<img id="local-faction" class="h-14" src="" alt="Local faction logo"/>
+				<span id="next-local-faction" class="material-icons noSelect">arrow_right</span>
 			</div>
 			<div class="flex flex-col gap-1 justify-center items-center w-full">
 				<img class="w-32 lg:w-64 h-auto" alt="Logo" src="/awlogo.png">
 				<h1 class="font-boxing text-6xl text-center text-black font-bold"><span class="text-red-500">orange star</span> vs <span class="text-blue-900">blue moon</span></h1>
 			</div>
 			<div class="flex items-center justify-end w-full mr-[120px]">
-				<span class="material-icons">arrow_left</span>
-				<img class="h-14" src="/factions/Blue_Moon_logo.webp" alt="Blue Moon's logo"/>
-				<span class="material-icons">arrow_right</span>
+				<span id="previous-visitor-faction" class="material-icons noSelect">arrow_left</span>
+				<img id="visitor-faction" class="h-14" src="/factions/Blue_Moon_logo.webp" alt="Visitor faction logo"/>
+				<span id="next-visitor-faction" class="material-icons noSelect">arrow_right</span>
 			</div>
 		</header>
 
@@ -100,6 +100,20 @@
 		font-weight: bold;
 	}
 
+	.noSelect {
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.noSelect:focus {
+		outline: none !important;
+	}
+
 	.andy-clip-path {
 		clip-path: polygon(53% 0%, 45% 5%, 39% 13%, 48% 24%, 52% 31%, 63% 35%, 55% 38%, 52% 43%, 39% 40%, 44% 35%, 43% 27%, 39% 22%, 28% 20%, 19% 22%, 13% 29%, 12% 34%, 15% 36%, 12% 41%, 6% 42%, 0% 47%, 0% 59%, 8% 62%, 20% 62%, 27% 59%, 29% 55%, 28% 49%, 44% 56%, 33% 65%, 35% 73%, 27% 91%, 27% 100%, 92% 100%, 89% 90%, 82% 72%, 86% 66%, 99% 49%, 99% 36%, 87% 29%, 93% 22%, 93% 10%, 87% 5%, 74% 0%);
 	}
@@ -132,6 +146,16 @@
 	const $COImages = $COs.querySelectorAll('img');
 	const $info = $COs.querySelector('#info');
 	const $combat = $COs.querySelector('#combat');
+
+	const factions = ['/factions/Orange_Star_logo.webp', '/factions/Blue_Moon_logo.webp', '/factions/Green_Earth_logo.webp', '/factions/Yellow_Comet_logo.webp', '/factions/Black_Hole_logo.webp'];
+	let localFactionIndex = 0;
+	let visitorFactionIndex = 1;
+
+	const $localFactionLogo = document.querySelector('#local-faction');
+	$localFactionLogo.src = factions[0];
+
+	const $visitorFactionLogo = document.querySelector('#visitor-faction');
+	$visitorFactionLogo.src = factions[1];
 
 	$COImages.forEach($img => {
 		$img.addEventListener('mouseleave', () => {
@@ -179,6 +203,53 @@
 			);
 		});
 	});
-</script>
 
-<!-- 1h 30min -->
+	function previousLocalFaction() {
+		localFactionIndex -= 1;
+		if (localFactionIndex < 0) localFactionIndex = 4;
+		if (localFactionIndex == visitorFactionIndex) {
+			previousLocalFaction();
+		}
+		else {
+			$localFactionLogo.src = factions[localFactionIndex];
+		}
+	}
+
+	function nextLocalFaction() {
+		localFactionIndex += 1;
+		if (localFactionIndex > 4) localFactionIndex = 0;
+		if (localFactionIndex == visitorFactionIndex) {
+			nextLocalFaction();
+		}
+		else {
+			$localFactionLogo.src = factions[localFactionIndex];
+		}
+	}
+	
+	function previousVisitorFaction() {
+		visitorFactionIndex -= 1;
+		if (visitorFactionIndex < 0) visitorFactionIndex = 4;
+		if (visitorFactionIndex == localFactionIndex) {
+			previousVisitorFaction();
+		}
+		else {
+			$visitorFactionLogo.src = factions[visitorFactionIndex];
+		}
+	}
+
+	function nextVisitorFaction() {
+		visitorFactionIndex += 1;
+		if (visitorFactionIndex > 4) visitorFactionIndex = 0;
+		if (visitorFactionIndex == localFactionIndex) {
+			nextVisitorFaction();
+		}
+		else {
+			$visitorFactionLogo.src = factions[visitorFactionIndex];
+		}
+	}
+
+	document.querySelector('#previous-local-faction').addEventListener('click', previousLocalFaction);
+	document.querySelector('#next-local-faction').addEventListener('click', nextLocalFaction);
+	document.querySelector('#previous-visitor-faction').addEventListener('click', previousVisitorFaction);
+	document.querySelector('#next-visitor-faction').addEventListener('click', nextVisitorFaction);
+</script>
