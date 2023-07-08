@@ -1,0 +1,39 @@
+---
+const { factionId } = Astro.props;
+---
+
+<div class="flex justify-center items-center w-full [&>span]:text-[56px] [&>span]:cursor-pointer">
+    <span id="previous-faction" class="material-icons noSelect">arrow_left</span>
+    <img id="faction" class="h-14" src="" alt="Faction logo"/>
+    <span id="next-faction" class="material-icons noSelect">arrow_right</span>
+</div>
+
+<script define:vars={{ factionId }}>
+    const factions = ['/factions/Orange_Star_logo.webp', '/factions/Blue_Moon_logo.webp', '/factions/Green_Earth_logo.webp', '/factions/Yellow_Comet_logo.webp', '/factions/Black_Hole_logo.webp'];
+    let factionIndex = parseInt(factionId);
+
+    const $factionLogo = document.querySelector('#faction');
+    $factionLogo.setAttribute('id', 'faction-'+factionId);
+    $factionLogo.src = factions[factionIndex];
+
+    function previousFaction() {
+        factionIndex -= 1;
+        if (factionIndex < 0) factionIndex = 4;
+        $factionLogo.src = factions[factionIndex];
+    }
+
+    function nextFaction() {
+        debugger;
+        factionIndex += 1;
+        if (factionIndex > 4) factionIndex = 0;
+        $factionLogo.src = factions[factionIndex];
+    }
+
+    const $previousButton = document.querySelector('#previous-faction');
+    $previousButton.setAttribute('id', 'previous-faction-'+factionId);
+    $previousButton.addEventListener('click', previousFaction);
+
+    const $nextButton = document.querySelector('#next-faction');
+    $nextButton.setAttribute('id', 'next-faction-'+factionId);
+    $nextButton.addEventListener('click', nextFaction);
+</script>
