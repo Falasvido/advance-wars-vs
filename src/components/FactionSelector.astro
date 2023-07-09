@@ -2,38 +2,56 @@
 const { factionId } = Astro.props;
 ---
 
-<div class="flex justify-center items-center w-full [&>span]:text-[56px] [&>span]:cursor-pointer">
+
+<div class="flex justify-center items-center w-full [&>span]:text-[56px] [&>span]:cursor-pointer [&>span]:mx-6 [&>img]:absolute">
+
     <span id="previous-faction" class="material-icons noSelect">arrow_left</span>
-    <img id="faction" class="h-14" src="" alt="Faction logo"/>
+
+    <img id="orange-star-logo" class="h-14 opacity-0" src="/factions/Orange_Star_logo.webp" alt="Faction logo"/>
+    <img id="blue-moon-logo" class="h-14 opacity-0" src="/factions/Blue_Moon_logo.webp" alt="Faction logo"/>
+    <img id="green-earth-logo" class="h-14 opacity-0" src="/factions/Green_Earth_logo.webp" alt="Faction logo"/>
+    <img id="yellow-comet-logo" class="h-14 opacity-0" src="/factions/Yellow_Comet_logo.webp" alt="Faction logo"/>
+    <img id="black-hole-logo" class="h-14 opacity-0" src="/factions/Black_Hole_logo.webp" alt="Faction logo"/>
+
     <span id="next-faction" class="material-icons noSelect">arrow_right</span>
+
 </div>
 
-<script define:vars={{ factionId }}>
-    const factions = ['/factions/Orange_Star_logo.webp', '/factions/Blue_Moon_logo.webp', '/factions/Green_Earth_logo.webp', '/factions/Yellow_Comet_logo.webp', '/factions/Black_Hole_logo.webp'];
-    let factionIndex = parseInt(factionId);
 
-    const $factionLogo = document.querySelector('#faction');
-    $factionLogo.setAttribute('id', 'faction-'+factionId);
-    $factionLogo.src = factions[factionIndex];
+<script define:vars={{ factionId }}>
+    // parse logo ids to unique logo ids
+    let factionIndex = parseInt(factionId);
+    const factions = ['orange-star-logo', 'blue-moon-logo', 'green-earth-logo', 'yellow-comet-logo', 'black-hole-logo'].map(faction => faction + '-' + factionId);
+    
+    document.querySelector('#orange-star-logo').setAttribute('id', 'orange-star-logo-' + factionId);
+    document.querySelector('#blue-moon-logo').setAttribute('id', 'blue-moon-logo-' + factionId);
+    document.querySelector('#green-earth-logo').setAttribute('id', 'green-earth-logo-' + factionId);
+    document.querySelector('#yellow-comet-logo').setAttribute('id', 'yellow-comet-logo-' + factionId);
+    document.querySelector('#black-hole-logo').setAttribute('id', 'black-hole-logo-' + factionId);
+
+    // set selected faction to have opacity: 1
+    document.querySelector('#' + factions[factionIndex]).setAttribute('class', 'h-14');
 
     function previousFaction() {
+        document.querySelector('#' + factions[factionIndex]).setAttribute('class', 'h-14 opacity-0');
         factionIndex -= 1;
         if (factionIndex < 0) factionIndex = 4;
-        $factionLogo.src = factions[factionIndex];
+        document.querySelector('#' + factions[factionIndex]).setAttribute('class', 'h-14 animate-duration-200 animate-fade-left');
     }
 
     function nextFaction() {
-        debugger;
+        document.querySelector('#' + factions[factionIndex]).setAttribute('class', 'h-14 opacity-0');
         factionIndex += 1;
         if (factionIndex > 4) factionIndex = 0;
-        $factionLogo.src = factions[factionIndex];
+        document.querySelector('#' + factions[factionIndex]).setAttribute('class', 'h-14 animate-duration-200 animate-fade-right');
     }
 
+    // add functionality to "buttons"
     const $previousButton = document.querySelector('#previous-faction');
-    $previousButton.setAttribute('id', 'previous-faction-'+factionId);
+    $previousButton.setAttribute('id', 'previous-faction-' + factionId);
     $previousButton.addEventListener('click', previousFaction);
 
     const $nextButton = document.querySelector('#next-faction');
-    $nextButton.setAttribute('id', 'next-faction-'+factionId);
+    $nextButton.setAttribute('id', 'next-faction-' + factionId);
     $nextButton.addEventListener('click', nextFaction);
 </script>
